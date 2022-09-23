@@ -127,12 +127,12 @@ def eliminarMesas(id):
 def crearPartido():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/partido'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/partidos'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
 
-@app.route("/mesas",methods=['GET'])
+@app.route("/partido",methods=['GET'])
 def getPartidos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
     url = dataConfig["url-backend-registraduria-GP2"] + '/partidos'
@@ -140,27 +140,27 @@ def getPartidos():
     json = response.json()
     return jsonify(json)
 
-@app.route("/mesas/<string:id>",methods=['GET'])
+@app.route("/partido/<string:id>",methods=['GET'])
 def getPartido(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/partido/'+id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/partidos/'+id
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
 
-@app.route("/mesas/<string:id>",methods=['PUT'])
+@app.route("/partido/<string:id>",methods=['PUT'])
 def modificarPartido(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/partido/'+id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/partidos/'+id
     response = requests.put(url, headers=headers, json=data)
     json = response.json()
     return jsonify(json)
 
-@app.route("/mesas/<string:id>",methods=['DELETE'])
+@app.route("/partido/<string:id>",methods=['DELETE'])
 def eliminarPartido(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/partido/' + id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/partidos/' + id
     response = requests.delete(url, headers=headers)
     json = response.json()
     return jsonify(json)
