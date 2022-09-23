@@ -81,7 +81,7 @@ def validarPermiso(endPoint,metodo,idRol):
 def crearMesa():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-academic"] + '/mesa'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/mesa'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
@@ -89,7 +89,7 @@ def crearMesa():
 @app.route("/mesas",methods=['GET'])
 def getMesas():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/mesa'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/mesas'
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
@@ -127,7 +127,7 @@ def eliminarMesas(id):
 def crearPartido():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-academic"] + '/partido'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/partido'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
@@ -173,7 +173,7 @@ def eliminarPartido(id):
 def crearCandidato():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-academic"] + '/candidato'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/candidato'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
@@ -220,7 +220,7 @@ def eliminarCandidato(id):
 def crearResolucion():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-academic"] + '/resolucion'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/resolucion'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
@@ -266,7 +266,7 @@ def eliminarResolucion(id):
 def crearVoto():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-academic"] + '/voto'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/voto'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
@@ -313,7 +313,7 @@ def eliminarVoto(id):
 def crearReporte():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-academic"] + '/reporte'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/reporte'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
@@ -352,7 +352,7 @@ def eliminarReporte(id):
 def crearResultado():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-academic"] + '/resultado'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/resultado'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
