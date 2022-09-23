@@ -77,11 +77,11 @@ def validarPermiso(endPoint,metodo,idRol):
 
 #////////////////////////////////////////////////////////////////////implemantacion redireccionamiento MESAS
 
-@app.route("/mesa",methods=['POST'])
+@app.route("/mesas",methods=['POST'])
 def crearMesa():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/mesa'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/mesas'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
@@ -97,7 +97,7 @@ def getMesas():
 @app.route("/mesas/<string:id>",methods=['GET'])
 def getMesa(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/mesa/'+id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/mesas/'+id
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
@@ -106,7 +106,7 @@ def getMesa(id):
 def modificarMesa(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/mesa/'+id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/mesas/'+id
     response = requests.put(url, headers=headers, json=data)
     json = response.json()
     return jsonify(json)
@@ -114,7 +114,7 @@ def modificarMesa(id):
 @app.route("/mesas/<string:id>",methods=['DELETE'])
 def eliminarMesas(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/mesa/' + id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/mesas/' + id
     response = requests.delete(url, headers=headers)
     json = response.json()
     return jsonify(json)
@@ -123,7 +123,7 @@ def eliminarMesas(id):
 
 #////////////////////////////////////////////////////////////////////implemantacion redireccionamiento PARTIDOS
 
-@app.route("/partido",methods=['POST'])
+@app.route("/partidos",methods=['POST'])
 def crearPartido():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
@@ -132,7 +132,7 @@ def crearPartido():
     json = response.json()
     return jsonify(json)
 
-@app.route("/partido",methods=['GET'])
+@app.route("/partidos",methods=['GET'])
 def getPartidos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
     url = dataConfig["url-backend-registraduria-GP2"] + '/partidos'
@@ -140,7 +140,7 @@ def getPartidos():
     json = response.json()
     return jsonify(json)
 
-@app.route("/partido/<string:id>",methods=['GET'])
+@app.route("/partidos/<string:id>",methods=['GET'])
 def getPartido(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
     url = dataConfig["url-backend-registraduria-GP2"] + '/partidos/'+id
@@ -148,7 +148,7 @@ def getPartido(id):
     json = response.json()
     return jsonify(json)
 
-@app.route("/partido/<string:id>",methods=['PUT'])
+@app.route("/partidos/<string:id>",methods=['PUT'])
 def modificarPartido(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
@@ -157,7 +157,7 @@ def modificarPartido(id):
     json = response.json()
     return jsonify(json)
 
-@app.route("/partido/<string:id>",methods=['DELETE'])
+@app.route("/partidos/<string:id>",methods=['DELETE'])
 def eliminarPartido(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
     url = dataConfig["url-backend-registraduria-GP2"] + '/partidos/' + id
@@ -169,11 +169,11 @@ def eliminarPartido(id):
 #////////////////////////////////////////////////////////////////////implemantacion redireccionamiento CANDIDATOS
 
 
-@app.route("/candidato",methods=['POST'])
+@app.route("/candidatos",methods=['POST'])
 def crearCandidato():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/candidato'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/candidatos'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
@@ -186,27 +186,27 @@ def getCandidatos():
     json = response.json()
     return jsonify(json)
 
-@app.route("/candidato/<string:id>",methods=['GET'])
+@app.route("/candidatos/<string:id>",methods=['GET'])
 def getCandidato(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/candidato/'+id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/candidatos/'+id
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
 
-@app.route("/candidato/<string:id>",methods=['PUT'])
+@app.route("/candidatos/<string:id>",methods=['PUT'])
 def modificarCandidato(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/candidato/'+id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/candidatos/'+id
     response = requests.put(url, headers=headers, json=data)
     json = response.json()
     return jsonify(json)
 
-@app.route("/candidato/<string:id>",methods=['DELETE'])
+@app.route("/candidatos/<string:id>",methods=['DELETE'])
 def eliminarCandidato(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/candidato/' + id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/candidatos/' + id
     response = requests.delete(url, headers=headers)
     json = response.json()
     return jsonify(json)
@@ -225,10 +225,10 @@ def crearResolucion():
     json = response.json()
     return jsonify(json)
 
-@app.route("/resoluciones",methods=['GET'])
+@app.route("/resolucion",methods=['GET'])
 def getResoluciones():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/resoluciones'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/resolucion'
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
@@ -262,7 +262,7 @@ def eliminarResolucion(id):
 #////////////////////////////////////////////////////////////////////implemantacion redireccionamiento VOTOS
 
 
-@app.route("/voto",methods=['POST'])
+@app.route("/votos",methods=['POST'])
 def crearVoto():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
@@ -274,12 +274,12 @@ def crearVoto():
 @app.route("/votos",methods=['GET'])
 def getVotos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/votos'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/voto'
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
 
-@app.route("/voto/<string:id>",methods=['GET'])
+@app.route("/votos/<string:id>",methods=['GET'])
 def getVoto(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
     url = dataConfig["url-backend-registraduria-GP2"] + '/voto/'+id
@@ -287,7 +287,7 @@ def getVoto(id):
     json = response.json()
     return jsonify(json)
 
-@app.route("/voto/<string:id>",methods=['PUT'])
+@app.route("/votos/<string:id>",methods=['PUT'])
 def modificarVoto(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
@@ -296,7 +296,7 @@ def modificarVoto(id):
     json = response.json()
     return jsonify(json)
 
-@app.route("/voto/<string:id>",methods=['DELETE'])
+@app.route("/votos/<string:id>",methods=['DELETE'])
 def eliminarVoto(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
     url = dataConfig["url-backend-registraduria-GP2"] + '/voto/' + id
@@ -309,37 +309,37 @@ def eliminarVoto(id):
 #////////////////////////////////////////////////////////////////////implemantacion redireccionamiento REPORTES
 
 
-@app.route("/reporte",methods=['POST'])
+@app.route("/reportes",methods=['POST'])
 def crearReporte():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/reporte'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/reportes'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
 
 
-@app.route("/reporte/<string:id>",methods=['GET'])
+@app.route("/reportes/<string:id>",methods=['GET'])
 def getReporte(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/reporte/'+id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/reportes/'+id
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
 
-@app.route("/reporte/<string:id>",methods=['PUT'])
+@app.route("/reportes/<string:id>",methods=['PUT'])
 def modificarReporte(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/reporte/'+id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/reportes/'+id
     response = requests.put(url, headers=headers, json=data)
     json = response.json()
     return jsonify(json)
 
-@app.route("/reporte/<string:id>",methods=['DELETE'])
+@app.route("/reportes/<string:id>",methods=['DELETE'])
 def eliminarReporte(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/reporte/' + id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/reportes/' + id
     response = requests.delete(url, headers=headers)
     json = response.json()
     return jsonify(json)
@@ -348,37 +348,37 @@ def eliminarReporte(id):
 #////////////////////////////////////////////////////////////////////implemantacion redireccionamiento RESULTADOS
 
 
-@app.route("/resultado",methods=['POST'])
+@app.route("/resultados",methods=['POST'])
 def crearResultado():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/resultado'
+    url = dataConfig["url-backend-registraduria-GP2"] + '/resultados'
     response = requests.post(url, headers=headers,json=data)
     json = response.json()
     return jsonify(json)
 
 
-@app.route("/resultado/<string:id>",methods=['GET'])
+@app.route("/resultados/<string:id>",methods=['GET'])
 def getResultado(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/resultado/'+id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/resultados/'+id
     response = requests.get(url, headers=headers)
     json = response.json()
     return jsonify(json)
 
-@app.route("/resultado/<string:id>",methods=['PUT'])
+@app.route("/resultados/<string:id>",methods=['PUT'])
 def modificarResultado(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/resultado/'+id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/resultados/'+id
     response = requests.put(url, headers=headers, json=data)
     json = response.json()
     return jsonify(json)
 
-@app.route("/resultado/<string:id>",methods=['DELETE'])
+@app.route("/resultados/<string:id>",methods=['DELETE'])
 def eliminarResultado(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-registraduria-GP2"] + '/resultado/' + id
+    url = dataConfig["url-backend-registraduria-GP2"] + '/resultados/' + id
     response = requests.delete(url, headers=headers)
     json = response.json()
     return jsonify(json)
